@@ -4,22 +4,17 @@ import { SocialMediaIcons } from "./SocialMediaIcons";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { NavigationModal } from "./NavigationModal/NavigationModal";
+import { Navigation as NavType } from "../../../types/navigation";
 
 interface Props {
   title: string;
+  navigation: NavType[];
 }
 
-export const Navigation = ({ title }: Props) => {
-  const localLinks = [
-    { display: "About", link: "/" },
-    { display: "Past Clients", link: "/" },
-    { display: "Testimonials", link: "/" },
-    { display: "Get a Quote", link: "/#contact-form" },
-  ];
-
+export const Navigation = ({ title, navigation }: Props) => {
   const visibleAtMedWidth = {
-    base: "hidden",
-    md: "visible",
+    base: "none",
+    md: "block",
   } as const;
 
   const invisibleAtMed = {
@@ -33,20 +28,19 @@ export const Navigation = ({ title }: Props) => {
     <>
       <NavigationModal
         isModalOpen={isModalOpen}
-        links={localLinks}
+        links={navigation}
         close={() => setIsModalOpen(false)}
         title={title}
       />
-      <Box visibility={visibleAtMedWidth}>
-        <LocalNavigation isVisible links={localLinks} />
+      <Box display={visibleAtMedWidth} position="absolute" width="100%">
+        <LocalNavigation isVisible links={navigation} />
       </Box>
-      <Box visibility={visibleAtMedWidth}>
+      <Box display={visibleAtMedWidth}>
         <SocialMediaIcons />
       </Box>
-      <HamburgerIcon
-        display={invisibleAtMed}
-        onClick={() => setIsModalOpen(!isModalOpen)}
-      />
+      <Box cursor="pointer" display={invisibleAtMed}>
+        <HamburgerIcon onClick={() => setIsModalOpen(!isModalOpen)} />
+      </Box>
     </>
   );
 };

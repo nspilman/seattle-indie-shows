@@ -10,16 +10,14 @@ import {
   ModalHeader,
   Heading,
 } from "@chakra-ui/react";
+import { Navigation } from "../../../../types/navigation";
 import { SocialMediaIcons } from "../SocialMediaIcons";
 
 interface Props {
   isModalOpen: boolean;
   title: string;
   close: () => void;
-  links: {
-    display: string;
-    link: string;
-  }[];
+  links: Navigation[];
 }
 
 export const NavigationModal = ({
@@ -50,15 +48,15 @@ export const NavigationModal = ({
         height="lg"
         alignItems="center"
       >
-        {links.map((link, i) => (
-          <Link key={i} href={link.link} onClick={close}>
+        {links.map(({ link, text }, i) => (
+          <Link key={i} href={link} onClick={close}>
             <Text
               casing="uppercase"
               fontSize="3xl"
               py="2"
               fontWeight="semibold"
             >
-              {link.display}
+              {text}
             </Text>
           </Link>
         ))}

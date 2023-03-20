@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { ContactForm } from "../components/ContactForm";
 import { Header } from "../components/Header";
+import { Testimonials } from "../components/Testimonials/Testimonials";
 import { VideoModal } from "../components/YoutubeVideoModal";
 
 const Home: NextPage = () => {
@@ -12,10 +13,32 @@ const Home: NextPage = () => {
 
   const contactFormSubtext =
     "Get in touch and let us know your film needs! We look forward to working with you, and will get back to you soon.";
+
+  const testimonialsData = [
+    {
+      name: "John Doe",
+      title: "CEO",
+      company: "Tech Corp",
+      testimonial:
+        "This product is amazing! It has truly revolutionized the way we work.",
+      avatarUrl: "https://example.com/avatar1.jpg",
+    },
+    {
+      name: "Jane Smith",
+      title: "CFO",
+      company: "Finance Inc",
+      testimonial:
+        "We have seen a significant increase in efficiency since implementing this solution.",
+      avatarUrl: "https://example.com/avatar2.jpg",
+    },
+    // Add more testimonials here
+  ];
+  const navigation = [{ link: "/", text: "placholder" }];
   return (
     <Box>
-      <Header title="Alex Gurevich Film" />
+      <Header title="Alex Gurevich Film" navigation={navigation} />
       <VideoModal src={youtubeSrc} />
+      <Testimonials testimonials={testimonialsData} />
       <ContactForm subtext={contactFormSubtext} />
     </Box>
   );
