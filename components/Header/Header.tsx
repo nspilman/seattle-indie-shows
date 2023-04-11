@@ -11,8 +11,8 @@ export const Header = ({ title, navigation }: Props) => {
     <Flex
       justifyContent="space-between"
       width="100%"
-      bg="black"
-      color="orange.200"
+      bg="background.primary"
+      color="text.primary"
       px="10"
       py="4"
       alignItems="center"

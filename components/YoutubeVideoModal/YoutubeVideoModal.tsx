@@ -1,13 +1,13 @@
-import { Box, Center, Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
-interface Props {
+export interface Props {
   src: string;
 }
 
 export const VideoModal = ({ src }: Props) => {
   return (
     <Flex
-      bg="gray.900"
+      bg="background.secondary"
       height="100vh"
       justifyContent="center"
       position="relative"

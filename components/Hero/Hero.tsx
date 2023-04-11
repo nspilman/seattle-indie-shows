@@ -12,18 +12,14 @@ import {
 export type Props = {
   title: string;
   subtitle: string;
-  buttonText: string;
-  buttonLink: string;
+  button?: {
+    text: string;
+    link: string;
+  };
   backgroundImg: string;
 };
 
-export const Hero: React.FC<Props> = ({
-  title,
-  subtitle,
-  buttonText,
-  buttonLink,
-  backgroundImg,
-}) => {
+export const Hero = ({ title, subtitle, button, backgroundImg }: Props) => {
   return (
     <Box
       bgImage={`url(${backgroundImg})`}
@@ -46,11 +42,13 @@ export const Hero: React.FC<Props> = ({
           <Text fontSize="xl" color="white">
             {subtitle}
           </Text>
-          <Link href={buttonLink}>
-            <Button as="a" colorScheme="blue" size="lg">
-              {buttonText}
-            </Button>
-          </Link>
+          {button && (
+            <Link href={button.link}>
+              <Button as="a" colorScheme="blue" size="lg">
+                {button.text}
+              </Button>
+            </Link>
+          )}
         </VStack>
       </Flex>
     </Box>

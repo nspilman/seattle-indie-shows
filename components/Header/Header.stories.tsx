@@ -3,13 +3,14 @@ import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { Header, Props } from "./Header";
 import { ChakraProvider, CSSReset } from "@chakra-ui/react";
+import { theme } from "../../styles/styles";
 
 export default {
   title: "Components/Header",
   component: Header,
   decorators: [
     (Story) => (
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <CSSReset />
         <Story />
       </ChakraProvider>

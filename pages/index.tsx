@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { ContactForm } from "../components/ContactForm";
 import { Header } from "../components/Header";
+import { Hero } from "../components/Hero";
 import { Testimonials } from "../components/Testimonials/Testimonials";
 import { VideoModal } from "../components/YoutubeVideoModal";
 
@@ -36,9 +37,12 @@ const Home: NextPage = () => {
   const navigation = [{ link: "/", text: "placholder" }];
   return (
     <Box>
-      <Header title="Alex Gurevich Film" navigation={navigation} />
-      <VideoModal src={youtubeSrc} />
-      <Testimonials testimonials={testimonialsData} />
+      <Header title="Placeholder Title" navigation={navigation} />
+      <Hero
+        title="Placeholder Title"
+        subtitle="placeholder subtitle"
+        backgroundImg="/placeholder.png"
+      />
       <ContactForm subtext={contactFormSubtext} />
     </Box>
   );

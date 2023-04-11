@@ -10,7 +10,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-interface Props {
+export interface Props {
   subtext?: string;
 }
 
@@ -20,8 +20,8 @@ export const ContactForm = ({ subtext }: Props) => {
   return (
     <Stack
       id="contact-form"
-      bg="gray.900"
-      color="orange.200"
+      bg="background.primary"
+      color="text.primary"
       direction={{
         base: "column",
         md: "row",
@@ -29,6 +29,7 @@ export const ContactForm = ({ subtext }: Props) => {
       width="100vw"
       justifyContent="center"
       height="100%"
+      py="8"
     >
       <Flex
         direction="column"
@@ -63,7 +64,7 @@ export const ContactForm = ({ subtext }: Props) => {
             <Textarea bg="white" color="black" />
           </FormControl>
           <Button
-            bg="gray.900"
+            bg="background.primary"
             borderColor="orange.300"
             border="1px solid"
             width="64"
