@@ -3,6 +3,9 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { ContactForm } from "../components/ContactForm";
+import { BandForm } from "../components/Form/SpecificForms/BandForm";
+import { EventForm } from "../components/Form/SpecificForms/EventForm";
+import { VenueForm } from "../components/Form/SpecificForms/VenueForm";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
 import { Testimonials } from "../components/Testimonials/Testimonials";
@@ -43,6 +46,9 @@ const Home: NextPage = () => {
         subtitle="placeholder subtitle"
         backgroundImg="/placeholder.png"
       />
+      <BandForm />
+      <EventForm />
+      <VenueForm />
       <ContactForm subtext={contactFormSubtext} />
     </Box>
   );
